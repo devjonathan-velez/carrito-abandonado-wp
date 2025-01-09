@@ -1,8 +1,8 @@
 import { Request, Response } from 'express';
 
 export const handleWebhook = (req: Request, res: Response) => {
-    console.log(req.body)
-  console.log('Webhook recibido:', req.body);
+
+  console.log('Webhook recibido:');
   res.status(200).json({ message: 'Webhook recibido correctamente' });
 };
 
