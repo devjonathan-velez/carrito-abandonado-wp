@@ -18,7 +18,7 @@ const utils_1 = require("../utils");
 const handleWebhook = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     var _a, _b;
     const { email, homePhone } = req.body;
-    if (email === "jvalencias@cuerosvelez.com") {
+    if (email === "jvalencias@cuerosvelez.com" && email === "soranny88@gmail.com") {
         console.log(req.body);
         if (homePhone === '') {
             res.status(200).json({

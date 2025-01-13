@@ -8,7 +8,7 @@ export const handleWebhook = async (req: Request, res: Response) => {
   const {email,homePhone} = req.body;
 
  
-  if (email === "jvalencias@cuerosvelez.com") {
+  if (email === "jvalencias@cuerosvelez.com" && email === "soranny88@gmail.com") {
     console.log(req.body)
     if(homePhone === ''){
       res.status(200).json({
