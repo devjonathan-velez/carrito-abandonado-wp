@@ -6,16 +6,18 @@ import { removePlusSign } from '../utils';
 
 export const handleWebhook = async (req: Request, res: Response) => {
   const {email,homePhone} = req.body;
-  if(homePhone === ''){
-    res.status(200).json({
-      message: 'Carrito sin telefono',
-    });
-    return
-  }
-  
+
  
   if (email === "jvalencias@cuerosvelez.com") {
     console.log(req.body)
+    if(homePhone === ''){
+      res.status(200).json({
+        message: 'Carrito sin telefono',
+      });
+      return
+    }
+    
+   
     console.log(removePlusSign(homePhone))
     try {
       const response = await axios.post(
