@@ -18,14 +18,14 @@ const utils_1 = require("../utils");
 const handleWebhook = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     var _a, _b;
     const { email, homePhone } = req.body;
-    if (homePhone === '') {
-        res.status(200).json({
-            message: 'Carrito sin telefono',
-        });
-        return;
-    }
     if (email === "jvalencias@cuerosvelez.com") {
         console.log(req.body);
+        if (homePhone === '') {
+            res.status(200).json({
+                message: 'Carrito sin telefono',
+            });
+            return;
+        }
         console.log((0, utils_1.removePlusSign)(homePhone));
         try {
             const response = yield axios_1.default.post('https://api.botmaker.com/v2.0/chats-actions/trigger-intent', {
