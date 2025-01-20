@@ -17,7 +17,7 @@ const axios_1 = __importDefault(require("axios"));
 const utils_1 = require("../utils");
 const handleWebhook = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     var _a, _b;
-    const { email, homePhone } = req.body;
+    const { email, homePhone,rclastcart } = req.body;
     if (email === "jvalencias@cuerosvelez.com" || email === "soranny88@gmail.com") {
         console.log(req.body);
         if (homePhone === '') {
@@ -33,9 +33,10 @@ const handleWebhook = (req, res) => __awaiter(void 0, void 0, void 0, function* 
                     channelId: "cuerosvelez-whatsapp-573104486083",
                     contactId: (0, utils_1.removePlusSign)(homePhone)
                 },
-                intentIdOrName: "carrito_nuevo",
+                intentIdOrName: "Carrito abandonado",
                 variables: {
-                    nombre: "Jonathan"
+                    nombre: "Jonathan",
+                    urlCarrito:rclastcart
                 }
             }, {
                 headers: {
