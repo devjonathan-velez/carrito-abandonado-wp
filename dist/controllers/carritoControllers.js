@@ -17,8 +17,8 @@ const axios_1 = __importDefault(require("axios"));
 const utils_1 = require("../utils");
 const handleWebhook = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     var _a, _b;
-    const { email, homePhone,rclastcart } = req.body;
-    if (email === "jvalencias@cuerosvelez.com" || email === "soranny88@gmail.com") {
+    const { firstName, email, homePhone, rclastcart } = req.body;
+    if (email === "jvalencias@cuerosvelez.com" || email === "cchacon@cuerosvelez.com" || email === "aisaza@cuerosvelez.com" || email === "jrozo@cuerosvelez.com") {
         console.log(req.body);
         if (homePhone === '') {
             res.status(200).json({
@@ -35,9 +35,12 @@ const handleWebhook = (req, res) => __awaiter(void 0, void 0, void 0, function* 
                 },
                 intentIdOrName: "Carrito abandonado",
                 variables: {
-                    nombre: "Jonathan",
-                    urlCarrito:rclastcart
-                }
+                    nombre: firstName,
+                    urlCarrito: rclastcart
+                },
+                tags: {},
+                webhookPayload: "string",
+                postActionIntentIdOrName: "Carrito abandonado",
             }, {
                 headers: {
                     'Content-Type': 'application/json',

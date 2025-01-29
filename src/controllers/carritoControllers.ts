@@ -5,10 +5,10 @@ import { removePlusSign } from '../utils';
 
 
 export const handleWebhook = async (req: Request, res: Response) => {
-  const {email,homePhone} = req.body;
+  const {firstName,email,homePhone,rclastcart} = req.body;
 
  
-  if (email === "jvalencias@cuerosvelez.com" || email === "soranny88@gmail.com") {
+  if (email === "jvalencias@cuerosvelez.com" || email === "cchacon@cuerosvelez.com" || email==="aisaza@cuerosvelez.com" || email==="jrozo@cuerosvelez.com") {
     console.log(req.body)
     if(homePhone === ''){
       res.status(200).json({
@@ -27,10 +27,14 @@ export const handleWebhook = async (req: Request, res: Response) => {
             channelId: "cuerosvelez-whatsapp-573104486083",
             contactId: removePlusSign(homePhone)
           },
-          intentIdOrName: "carrito_nuevo",
+          intentIdOrName: "Carrito abandonado",
           variables: {
-            nombre: "Jonathan"
-          }
+            nombre: firstName,
+            urlCarrito:rclastcart
+          },
+          tags: {}, 
+          webhookPayload: "string",
+          postActionIntentIdOrName: "Carrito abandonado",
         },
         {
           headers: {
